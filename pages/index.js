@@ -58,7 +58,7 @@ const Home = () => {
             <div className={styles.inputContainer}>
                 <h1>Welcome to the Personalized Twitch Dashboard!</h1>
                 {renderForm()}
-                <StreamerGrid channels = {favoriteChannels} />
+                <StreamerGrid channels = {favoriteChannels} setChannels = {setFavoriteChannels} />
             </div>
         </div>
     )
