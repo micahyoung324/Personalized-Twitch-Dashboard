@@ -56,7 +56,7 @@ const StreamerGrid = ({ channels, setChannels }) => {
     )
 
     return (
-        <div>
+        <div className = {channels.length > 0 && styles.container}>
             {channels.length > 0 && channels.map(renderGridItem)}
             {channels.length === 0 && renderNoItems()}
         </div>
