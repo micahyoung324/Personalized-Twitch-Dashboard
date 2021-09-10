@@ -45,8 +45,8 @@ const StreamerGrid = ({ channels, setChannels }) => {
             <Image layout = "fill" src={channel.thumbnail_url} />
             <div className = {styles.gridItemContent}>
                 <a href={getTwitchLink(channel)}>{channel.display_name}</a>
-                {channel.is_live && <p>Live Now!</p>}
-                {!channel.is_live && <p>Offline</p>}
+                {channel.is_live && <p>🔴 Live Now!</p>}
+                {!channel.is_live && <p>⚫ Offline</p>}
             </div>
         </div>
     )
