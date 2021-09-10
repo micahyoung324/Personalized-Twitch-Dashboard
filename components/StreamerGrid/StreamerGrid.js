@@ -4,9 +4,36 @@ import styles from '../../styles/StreamerGrid.module.css'
 
 const StreamerGrid = ({ channels, setChannels }) => {
     // Actions
-    const removeChannelAction = channelID => () => {
-        console.log("Removing channel.")
-        setChannels(channels.filter(channel => channel.id !== channelID))
+    const removeChannelAction = channelID => async () => {
+        console.log("Removing channel with ID: ", channelID)
+
+        const filteredChannels = channels.filter(channel => channel.id !== channelID)
+
+        setChannels(filteredChannels)
+
+        const joinedChannels = filteredChannels.map(channel => channel.display_name.toLowerCase()).join(',')
+
+        await setDBChannels(joinedChannels)
+    }
+
+    const setDBChannels = async channels => {
+        try {
+            const path = `https://${window.location.hostname}`
+
+            const response = await fetch(`${path}/api/database`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    key: 'CHANNELS',
+                    value: channels
+                })
+            })
+
+            if (response.status === 200) {
+                console.log(`Set ${channels} in DB.`)
+            }
+        } catch (error) {
+            console.warn(error.message)
+        }
     }
 
     // Render Methods
@@ -27,8 +54,6 @@ const StreamerGrid = ({ channels, setChannels }) => {
             <p>Add a streamer to get started!</p>
         </div>
     )
-
-    // UseEffects
 
     return (
         <div>
