@@ -16,6 +16,8 @@ const StreamerGrid = ({ channels, setChannels }) => {
         await setDBChannels(joinedChannels)
     }
 
+    const getTwitchLink = channel => "https://www.twitch.tv/"+channel.broadcaster_login
+
     const setDBChannels = async channels => {
         try {
             const path = `https://${window.location.hostname}`
@@ -39,10 +41,10 @@ const StreamerGrid = ({ channels, setChannels }) => {
     // Render Methods
     const renderGridItem = channel => (
         <div key={channel.id} className = {styles.gridItem}>
-        <button onClick={removeChannelAction(channel.id)}>X</button>
+            <button onClick={removeChannelAction(channel.id)}>X</button>
             <Image layout = "fill" src={channel.thumbnail_url} />
             <div className = {styles.gridItemContent}>
-                <p>{channel.display_name}</p>
+                <a href={getTwitchLink(channel)}>{channel.display_name}</a>
                 {channel.is_live && <p>Live Now!</p>}
                 {!channel.is_live && <p>Offline</p>}
             </div>

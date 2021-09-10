@@ -1,10 +1,15 @@
-html,
-body {
-  height: 100vh;
+html {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: -apple-system, DM Mono, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient( rgb(96, 10, 182) 15%, rgb(20, 0, 94) 100%);
+    background-attachment: fixed;
 }
 
 a {

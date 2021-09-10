@@ -26,17 +26,17 @@
   overflow: hidden;
 }
 
-.gridItem p {
+.gridItem * {
     margin: 0;
 }
 
-.gridItem p:first-child {
+.gridItem a {
     font-size: 14px;
     font-weight: bold;
     padding-bottom: 5px;
 }
 
-.gridItem p:last-child {
+.gridItem p {
     font-size: 12px;
 }
 

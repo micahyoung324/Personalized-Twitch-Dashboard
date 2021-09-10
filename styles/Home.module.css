@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  background: linear-gradient(150deg, rgb(96, 10, 182) 15%, rgb(20, 0, 94) 100%);
 }
 
 .container h3 {
